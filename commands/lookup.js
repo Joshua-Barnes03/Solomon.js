@@ -27,7 +27,7 @@ module.exports = {
         return {error: true}
       })
     if (response.error || ((response.id || response.name) === undefined)) {
-      await interaction.reply(`I was unable to find that one. Are you sure ${string} is what you are looking for?`);
+      await interaction.reply(`I was unable to find that one. Are you sure ${interaction.options.getString('game')} is what you are looking for?`);
       return
     };
     const stats = await axios.get(`https://boardgamegeek.com/xmlapi2/thing?id=${response.id}&stats=1`)
